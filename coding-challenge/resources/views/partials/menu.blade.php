@@ -11,7 +11,7 @@
                     </button>
 
 
-                    <a class="navbar-brand" href="{{ url('home') }}">HOME
+                    <a class="navbar-brand" href="{{ url('products') }}">HOME
 
                     </a>
                 </div>

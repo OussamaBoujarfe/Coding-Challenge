@@ -4,70 +4,98 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Product;
 use Illuminate\Http\UploadedFile;
-use App\Http\Requests\stockRequest;
-use App\Models\Stock;
+use App\Http\Requests\productRequest;
+
 class productController extends Controller
 {
 
 
-    public function index(){
+       public function index()
+       {
 
-        $liststock= Stock::all();
+        $listproduct= Product::all();
+        return view('product.index',['products' => $listproduct]);
 
-        return view('stock.index',['stocks' => $liststock]);
        }
-       public function deleted(){
-        $onlySoftDeleted = Stock::onlyTrashed()->paginate(10);
-        return view('stock.alld',['stocks' => $onlySoftDeleted]);
+       public function indexForShop()
+       {
+
+        $listproduct= Product::all();
+        return view('shop-side',['products' => $listproduct]);
+
        }
-       public function create(){
-           return view('stock.create');
+
+       public function create()
+       {
+           return view('product.create');
        }
-       public function store(stockRequest $req){
 
-           $stock= new stock();
-           $stock->name= $req->input('name');
-           $stock->description = $req->input('description');
-           $stock->price= $req->input('price');
+       public function store(productRequest $req)
+       {
 
-           if($req->hasFile('photo')){
-            $stock->photo =  $req->photo->store('image');
+           $product= new product();
+           $product->name= $req->input('name');
+           $product->description = $req->input('description');
+           $product->price= $req->input('price');
 
+           if($req->hasFile('photo'))
+           {
+
+            $product->photo =  $req->photo->store('image');
             $req->file('photo')->move('public');
-                                     }
 
-           $stock->save();
-           session()->flash('success','Matériel a été Bien Enregistré !!');
-           return redirect('stocks');
-                                               }
-       public function edit($id){
-           $stock= Stock::find($id);
-           return view('stock/edit',['stock'=>$stock]);
-                                }
-       public function update(stockRequest $req ,$id){
-           $stock= Stock::find($id);
-           $stock->name= $req->input('name');
-           $stock->description= $req->input('description');
-           $stock->price= $req->input('price');
-           $stock->photo= $req->input('photo');
+           }
 
-           $stock->save();
-           return redirect('stocks');
+           $product->save();
+           session()->flash('success','Product Has Been Added !!');
+           return redirect('products');
 
        }
-       
-        public function showing($id){
-            $stocks = Stock::where('id',$id)->get();
 
-            return view('stock.product-detail',['stocks' => $stocks]);
+       public function edit($id)
+       {
 
+           $product= Product::find($id);
+           return view('product/edit',['product'=>$product]);
 
-            }
-
-        //
-       public function destroy(Request $req, $id){
-        $stock=Stock::find($id);
-        $stock->delete();
-        return redirect('stocks');
        }
+
+       public function update(productRequest $req ,$id)
+       {
+
+           $product= Product::find($id);
+           $product->name= $req->input('name');
+           $product->description= $req->input('description');
+           $product->price= $req->input('price');
+           $product->photo= $req->input('photo');
+
+           $product->save();
+           return redirect('products');
+
+       }
+
+        public function showing($id)
+        {
+
+            $products = Product::where('id',$id)->get();
+            return view('product.product-detail',['products' => $products]);
+
+        }
+
+        public function deleted()
+        {
+
+         $onlySoftDeleted = Product::onlyTrashed()->paginate(10);
+         return view('product.alld',['products' => $onlySoftDeleted]);
+
+        }
+
+        public function destroy(Request $req, $id)
+        {
+
+        $product=Product::find($id);
+        $product->delete();
+        return redirect('products');
+
+        }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnImageStocks extends Migration
+class AddColumnImageProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddColumnImageStocks extends Migration
      */
     public function up()
     {
-        Schema::table('stocks', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->string('photo')->nullable()->after('price');
         });
     }
@@ -25,7 +25,7 @@ class AddColumnImageStocks extends Migration
      */
     public function down()
     {
-        Schema::table('stocks', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('photo');
         });
     }

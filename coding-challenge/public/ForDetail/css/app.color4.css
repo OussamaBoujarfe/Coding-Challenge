@@ -4501,14 +4501,14 @@ input::-ms-clear {
     color: #156844;
     text-decoration: underline; }
 
-.pd-detail__stock, .pd-detail__left {
+.pd-detail__product, .pd-detail__left {
   font-size: 12px;
   font-weight: 600;
   padding: 8px;
   display: inline-block;
   border-radius: 30px; }
 
-.pd-detail__stock {
+.pd-detail__product {
   background-color: rgba(0, 148, 68, 0.14);
   color: #009444; }
 

@@ -2,7 +2,7 @@
 
 @extends('layouts.apps')
 @section('content')
-<title>QBM: Gestion De Stock</title>
+<title>List of Sold Products</title>
 
 
 <div class="container">
@@ -13,7 +13,7 @@
 
 
      <center>   <img src="{{ URL::asset("f/img/pp.png") }}" height="110px" weidth="100px">
-        <h1>Listes De Stock Sorti</h1><br><input class="btn btn-primary" type="button" onclick="window.print()" value="Imprimer" />
+        <h1>Soldout Products</h1><br><input class="btn btn-primary" type="button" onclick="window.print()" value="Printing" />
 
         <br><br></center>
 
@@ -24,18 +24,18 @@
 
                 <th>Name</th>
                 <th>price</th>
-                <th>Deleted on</th>
+                <th>Sold on</th>
 
 
             </tr>
         </head>
         <body>
-        @foreach($stocks as $stock)
+        @foreach($products as $product)
             <tr>
-                <td>{{$stock->name}}</td>
-                <td>{{$stock->price}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->price}}</td>
 
-                <td>{{$stock->deleted_at}}</td>
+                <td>{{$product->deleted_at}}</td>
 
             </tr>
             @endforeach
@@ -45,7 +45,7 @@
 
 
 
-        <center>{{$stocks->links()}} </center>
+        <center>{{$products->links()}} </center>
 
 
         </div>

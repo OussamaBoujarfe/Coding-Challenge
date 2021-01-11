@@ -19,14 +19,17 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('product-detail');
 });
-Route::get('stocks/alld', 'productController@deleted');
-Route::get('stocks/{id}/showing','productController@showing');
-Route::get('stocks', 'productController@index');
-Route::get('stocks/create', 'productController@create');
+Route::get('/shop', function () {
+    return view('shop-side');
+});
+Route::get('products/alld', 'productController@deleted');
+Route::get('products/{id}/showing','productController@showing');
+Route::get('products', 'productController@index');
+Route::get('products/create', 'productController@create');
+Route::get('/shop', 'productController@indexForShop');
 
-
-Route::post('stocks/{id}/showing','productController@store');
-Route::post('stocks', 'productController@store');
-Route::get('stocks/{id}/edit', 'productController@edit');
-Route::put('stocks/{id}', 'productController@update');
-Route::delete('stocks/{id}', 'productController@destroy');
+Route::post('products/{id}/showing','productController@store');
+Route::post('products', 'productController@store');
+Route::get('products/{id}/edit', 'productController@edit');
+Route::put('products/{id}', 'productController@update');
+Route::delete('products/{id}', 'productController@destroy');

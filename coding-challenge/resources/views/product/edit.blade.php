@@ -1,6 +1,6 @@
 @extends('layouts.apps')
 @section('content')
-<title>QBM: Gestion De Stock</title>
+<title>Product's Editing</title>
 <style>
 .d{margin-left:527px;
 
@@ -12,18 +12,18 @@
     <div class="row">
         <div class="col-md-12">
 
-           <form action="{{url('stocks/'.$stock->id)}}" method="post">
+           <form action="{{url('products/'.$product->id)}}" method="post">
            <input type="hidden" name="_method" value="PUT">
                 {{csrf_field()}}
 
              <div class="form-group">
              <center><img src="{{ URL::asset("f/img/pu1.png") }}" height="190px" weidth="190px">
-             <h1>Edition De Stocks</h1></center>
+             <h1>Product's Editing</h1></center>
              <br><br>
 
              <div class="form-group @if($errors->get('name')) has-error @endif">
-                <br><br><br><br><br><label for="">name :</label>
-                 <input type="text" name="name" class="form-control" value="{{$stock->name}}" >
+                <br><br><br><br><br><label for="">Name <span style="color:red;font-size:25px; ">*</span>:</label>
+                 <input type="text" name="name" class="form-control" value="{{$product->name}}" >
                  @if($errors->get('name'))
                  @foreach($errors->get('name') as $message)
                  <li>{{$message}}</li>
@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="form-group @if($errors->get('description')) has-error @endif">
-                    <label for="">Description :</label>
-                    <textarea name="description" rows="6" class="form-control" value="{{$stock->description}}"></textarea>
+                    <label for="">Description <span style="color:red;font-size:25px; ">*</span>:</label>
+                    <textarea name="description" rows="6" class="form-control" value="{{$product->description}}"></textarea>
                     @if($errors->get('description'))
                      @foreach($errors->get('description') as $message)
                      <li>{{$message}}</li>
@@ -42,8 +42,8 @@
                    </div>
 
                <div class="form-group @if($errors->get('price')) has-error @endif">
-                <label for="">Price :</label>
-                <input type="text" name="price" class="form-control" value="{{$stock->price}}">
+                <label for="">Price <span style="color:red;font-size:25px; ">*</span>:</label>
+                <input type="text" name="price" class="form-control" value="{{$product->price}}">
                 @if($errors->get('price'))
                  @foreach($errors->get('price') as $message)
                  <li>{{$message}}</li>
@@ -56,7 +56,7 @@
 
 
                <div class="form-group">
-                <label for="">Image:</label>
+                <label for="">Image <span style="color:red;font-size:25px; ">*</span>:</label>
                 <input class="form-control" type="file" name="photo">
             </div>
 
@@ -65,8 +65,8 @@
              <br><br>
              <div class="form-group">
 
-        
-               <input type="submit"   class="form-control btn btn-primary" value="Modifier">
+
+               <input type="submit"   class="form-control btn btn-primary" value="Edit">
              </div
 
            </form>

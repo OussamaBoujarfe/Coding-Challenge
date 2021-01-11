@@ -43,27 +43,20 @@
             <div class="u-s-p-t-90">
 
                 <div class="container">
-                    @foreach($stocks as $stock)
+                    @foreach($products as $product)
                     <div class="row">
 
                         <div class="col-lg-5">
 
                             <!--====== Product Breadcrumb ======-->
                             <div class="pd-breadcrumb u-s-m-b-30">
-                                <ul class="pd-breadcrumb__list">
-                                    <li class="has-separator">
 
-                                        <a href="index.hml">Home</a></li>
-                                    <li class="has-separator">
 
-                                        <a href="shop-side-version-2.html">Electronics</a></li>
-                                    <li class="has-separator">
 
-                                        <a href="shop-side-version-2.html">DSLR Cameras</a></li>
-                                    <li class="is-marked">
+                                        <a href="{{ url('products') }}">Home</a></li>
 
-                                        <a href="shop-side-version-2.html">Nikon Cameras</a></li>
-                                </ul>
+
+
                             </div>
                             <!--====== End - Product Breadcrumb ======-->
 
@@ -74,21 +67,21 @@
 
                                 <div class="slider-fouc pd-wrap">
                                     <div id="pd-o-initiate">
-                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($stock->photo) }}>
+                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($product->photo) }}>
 
-                                            <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} data-zoom-image={{ Storage::url($stock->photo) }} alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($stock->photo) }}>
+                                            <img class="u-img-fluid" src={{ Storage::url($product->photo) }} data-zoom-image={{ Storage::url($product->photo) }} alt=""></div>
+                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($product->photo) }}>
 
-                                            <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} data-zoom-image={{ Storage::url($stock->photo) }} alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($stock->photo) }}>
+                                            <img class="u-img-fluid" src={{ Storage::url($product->photo) }} data-zoom-image={{ Storage::url($product->photo) }} alt=""></div>
+                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($product->photo) }}>
 
-                                            <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} data-zoom-image={{ Storage::url($stock->photo) }} alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($stock->photo) }}>
+                                            <img class="u-img-fluid" src={{ Storage::url($product->photo) }} data-zoom-image={{ Storage::url($product->photo) }} alt=""></div>
+                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($product->photo) }}>
 
-                                            <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} data-zoom-image={{ Storage::url($stock->photo) }} alt=""></div>
-                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($stock->photo) }}>
+                                            <img class="u-img-fluid" src={{ Storage::url($product->photo) }} data-zoom-image={{ Storage::url($product->photo) }} alt=""></div>
+                                        <div class="pd-o-img-wrap" data-src={{ Storage::url($product->photo) }}>
 
-                                            <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} data-zoom-image={{ Storage::url($stock->photo) }} alt=""></div>
+                                            <img class="u-img-fluid" src={{ Storage::url($product->photo) }} data-zoom-image={{ Storage::url($product->photo) }} alt=""></div>
                                     </div>
 
                                     <span class="pd-text">Click for larger zoom</span>
@@ -98,19 +91,19 @@
                                         <div id="pd-o-thumbnail">
                                             <div>
 
-                                                <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} alt=""></div>
+                                                <img class="u-img-fluid" src={{ Storage::url($product->photo) }} alt=""></div>
                                             <div>
 
-                                                <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} alt=""></div>
+                                                <img class="u-img-fluid" src={{ Storage::url($product->photo) }} alt=""></div>
                                             <div>
 
-                                                <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} alt=""></div>
+                                                <img class="u-img-fluid" src={{ Storage::url($product->photo) }} alt=""></div>
                                             <div>
 
-                                                <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} alt=""></div>
+                                                <img class="u-img-fluid" src={{ Storage::url($product->photo) }} alt=""></div>
                                             <div>
 
-                                                <img class="u-img-fluid" src={{ Storage::url($stock->photo) }} alt=""></div>
+                                                <img class="u-img-fluid" src={{ Storage::url($product->photo) }} alt=""></div>
 
                                             </div>
                                     </div>
@@ -125,11 +118,11 @@
                             <div class="pd-detail">
                                 <div>
 
-                                    <span class="pd-detail__name">{{$stock->name}}</span></div>
+                                    <span class="pd-detail__name">{{$product->name}}</span></div>
                                 <div>
                                     <div class="pd-detail__inline">
 
-                                        <span class="pd-detail__price">{{$stock->price}}</span>
+                                        <span class="pd-detail__price">{{$product->price}}</span>
 
                                         <span class="pd-detail__discount">(76% OFF)</span><del class="pd-detail__del">$28.97</del></div>
                                 </div>
@@ -143,13 +136,13 @@
                                 <div class="u-s-m-b-15">
                                     <div class="pd-detail__inline">
 
-                                        <span class="pd-detail__stock">200 in stock</span>
+                                        <span class="pd-detail__product">200 in product</span>
 
                                         <span class="pd-detail__left">Only 2 left</span></div>
                                 </div>
                                 <div class="u-s-m-b-15">
 
-                                    <span class="pd-detail__preview-desc">{{$stock->description}}</span></div>
+                                    <span class="pd-detail__preview-desc">{{$product->description}}</span></div>
 
                                 <div class="u-s-m-b-15">
                                     <div class="pd-detail__inline">
@@ -260,11 +253,11 @@
                                     <div class="tab-pane fade show active" id="pd-desc">
                                         <div class="pd-tab__desc">
                                             <div class="u-s-m-b-15">
-                                                <p>{{$stock->description}}
+                                                <p>{{$product->description}}
 
                                                 </p>
                                             </div>
-                                            <div class="u-s-m-b-30"><iframe src="https://www.youtube.com/embed/qKqSBm07KZk " allowfullscreen></iframe></div>
+                                            
                                             <div class="u-s-m-b-30">
                                                 <ul>
                                                     <li><i class="fas fa-check u-s-m-r-8"></i>
@@ -643,7 +636,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product1.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product1.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -684,7 +677,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product2.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product2.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -725,7 +718,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product3.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product3.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -766,7 +759,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product23.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product23.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -807,7 +800,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product26.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product26.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -848,7 +841,7 @@
 
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
 
-                                                <img class="aspect__img" src="ForDetail/images/product/electronic/product30.jpg" alt=""></a>
+                                                <img class="aspect__img" src="{{ URL::asset('ForDetail/images/product/electronic/product30.jpg') }}" alt=""></a>
                                             <div class="product-o__action-wrap">
                                                 <ul class="product-o__action-list">
                                                     <li>
@@ -1153,7 +1146,7 @@
                                     <div class="u-s-m-b-15">
                                         <div class="pd-detail__inline">
 
-                                            <span class="pd-detail__stock">200 in stock</span>
+                                            <span class="pd-detail__product">200 in product</span>
 
                                             <span class="pd-detail__left">Only 2 left</span></div>
                                     </div>
