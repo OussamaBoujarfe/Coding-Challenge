@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Category;
 use App\Models\Product;
+
 use Illuminate\Http\UploadedFile;
 use App\Http\Requests\productRequest;
 
@@ -17,11 +19,14 @@ class productController extends Controller
         return view('product.index',['products' => $listproduct]);
 
        }
+
        public function indexForShop()
        {
 
-        $listproduct= Product::all();
-        return view('shop-side',['products' => $listproduct]);
+        $products   = Product::all();
+        $categories = Category::with('children')->get();
+
+        return view('shop-side',['categories' => $categories ,'products' => $products]);
 
        }
 

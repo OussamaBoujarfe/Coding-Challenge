@@ -24,12 +24,14 @@ Route::get('/shop', function () {
 });
 Route::get('products/alld', 'productController@deleted');
 Route::get('products/{id}/showing','productController@showing');
-Route::get('products', 'productController@index');
+Route::get('products' , 'productController@index');
 Route::get('products/create', 'productController@create');
-Route::get('/shop', 'productController@indexForShop');
 
+Route::get('/shop', 'productController@indexForShop');
+Route::resource('categories','categoryController');
 Route::post('products/{id}/showing','productController@store');
 Route::post('products', 'productController@store');
 Route::get('products/{id}/edit', 'productController@edit');
 Route::put('products/{id}', 'productController@update');
 Route::delete('products/{id}', 'productController@destroy');
+
